@@ -1,9 +1,19 @@
-export default function Song() {
+import { currentSong } from "./interfaces";
+interface Props {
+  currentSong: currentSong;
+}
+
+export default function Song({ currentSong }: Props) {
   return (
-    <div className="song-container">
-      <h1>Picture</h1>
-      <h1>Song Name</h1>
-      <h1>Artist</h1>
+    <div className="h-5/6 flex flex-col items-center justify-center">
+      <img
+        src={currentSong.cover}
+        className="w-2/6 mt-6 rounded-full text-center"
+      ></img>
+      <h2 className="pt-8 pr-4 pb-4 pl-4 text-3xl text-secondary">
+        {currentSong.name}
+      </h2>
+      <h3 className="mb-6 pr-4 pb-4 pl-4">{currentSong.artist}</h3>
     </div>
   );
 }
