@@ -1,6 +1,7 @@
-import { currentSong } from "./interfaces";
+//Importing Interfaces
+import { ICurrentSong } from "./interfaces";
 interface Props {
-  currentSong: currentSong;
+  currentSong: ICurrentSong;
 }
 
 export default function Song({ currentSong }: Props) {
@@ -8,6 +9,7 @@ export default function Song({ currentSong }: Props) {
     <div className="h-5/6 flex flex-col items-center justify-center">
       <img
         src={currentSong.cover}
+        alt={currentSong.name}
         className="w-2/6 mt-6 rounded-full text-center"
       ></img>
       <h2 className="pt-8 pr-4 pb-4 pl-4 text-3xl text-secondary">
