@@ -1,4 +1,4 @@
-export interface ICurrentSong {
+export interface ISong {
   name: string;
   cover: string;
   artist: string;
@@ -7,6 +7,9 @@ export interface ICurrentSong {
   id: string;
   active: boolean;
 }
+export interface ICurrentSong extends ISong {}
+
+export interface ISongs extends Array<ISong> {}
 export interface ISongInfo {
   currentTime: number;
   duration: number;
