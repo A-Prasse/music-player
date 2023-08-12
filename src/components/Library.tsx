@@ -9,6 +9,7 @@ interface Props {
   setSongs: React.Dispatch<React.SetStateAction<ISongs>>;
   setCurrentSong: React.Dispatch<React.SetStateAction<ISong | ICurrentSong>>;
   isPlaying: boolean;
+  libraryStatus: boolean;
 }
 
 export default function Library({
@@ -17,10 +18,14 @@ export default function Library({
   setCurrentSong,
   audioRef,
   isPlaying,
+  libraryStatus,
 }: Props) {
   return (
-    <div className="fixed top-0 left-0 w-80 h-full overflow-scroll">
-      <h2 className="text-center text-4xl text-secondary">Library</h2>
+    <div
+      className={`fixed top-0 left-0 w-60 h-full shadow-sm overflow-scroll translate-x-full opacity-0 ${
+        libraryStatus ? "translate-x-0 opacity-100" : ""
+      }`}
+    >
       <div>
         {songs.map((song) => (
           <LibrarySong

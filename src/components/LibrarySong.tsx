@@ -36,20 +36,13 @@ export default function LibrarySong({
       }
     });
     setSongs(newSongs);
-    if (isPlaying) {
-      const playPromise = audioRef.current?.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          audioRef.current?.play();
-        });
-      }
-    }
+    if (isPlaying) audioRef.current?.play();
   };
 
   return (
     <div
       onClick={handleSongSelect}
-      className={`h-5/6 flex flex-col items-center justify-center cursor-pointer hover:bg-primary ${
+      className={`h-5/6 flex flex-col items-center justify-center cursor-pointer rounded-3xl hover:bg-primary ${
         song.active ? "bg-primary-focus" : ""
       }`}
     >
@@ -58,10 +51,8 @@ export default function LibrarySong({
         alt={song.name}
         className="w-2/6 mt-3 rounded-full text-center"
       ></img>
-      <h3 className="pt-4 pr-4 pb-4 pl-4 text-3xl text-secondary">
-        {song.name}
-      </h3>
-      <h4 className="mb-3 pr-4 pb-4 pl-4">{song.artist}</h4>
+      <h3 className="p-2 text-2xl text-secondary">{song.name}</h3>
+      <h4 className="mb-3 pr-2 pb-2 pl-2">{song.artist}</h4>
     </div>
   );
 }

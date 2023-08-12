@@ -6,7 +6,7 @@ interface Props {
 
 export default function Song({ currentSong }: Props) {
   return (
-    <div className="h-5/6 flex flex-col items-center justify-center">
+    <div className="md:h-3/5 sm:h-2/5 flex flex-col items-center justify-center">
       <img
         src={currentSong.cover}
         alt={currentSong.name}
